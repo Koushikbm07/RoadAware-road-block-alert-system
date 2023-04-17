@@ -1,0 +1,33 @@
+{% extends 'b.html' %}
+
+{% block content %}
+<table class="table container table-bordered">
+    <thead>
+    <tr>
+        <th >Pincode</th>
+        <th>Road-Name</th>
+        <th>Status</th>
+        <th>CHECH HERE</th>
+    </tr>
+    </thead>
+    <tbody>
+
+{% for row in rows %}
+    <tr>
+    <td>{{row[0]}}</td>
+    <td>{{row[1]}}</td>
+    {% if row[2] %}
+    <td>The Path you want to go has been <b style="color:red
+        ">BLOCKED</b></td>
+    {% else %}
+    <td>You are free to travel, this path is <b style="color:green
+        ">CLEAR</b></td>
+    {% endif %}
+    <td> <a class="btn btn-primary py-1 my-3 "  href="/query">REFRESH</a></td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
